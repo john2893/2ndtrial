@@ -22,18 +22,38 @@ router.post('/', (req,res) => {
            location: city
        }
     })
-    .then((res) => {
-        console.log(JSON.stringify(res.data.businesses.length))
-        const dataLen = JSON.stringify(res.data.businesses.length)
-        const test = "testing tihs"
+    .then(response => {
+        console.log(JSON.stringify(response.data.businesses))
+        const dataLen = JSON.stringify(response.data.businesses.length)
+        let name
+        let image
+        let rating
+        let address
+        const food = []
+        const foodObj = {}
+
         for (i=0; i<=(dataLen-1); i++){ 
-            console.log(res.data.businesses[i].rating)
-            console.log(res.data.businesses[i].location.address1 +","+ res.data.businesses[i].location.state)
-            console.log(res.data.businesses[i].image_url)
+            //console.log(response.data.businesses[i].rating)
+            //console.log(response.data.businesses[i].location.address1 +","+ response.data.businesses[i].location.state)
+            //console.log(response.data.businesses[i].image_url)
+            name = response.data.businesses[i].name
+            image = response.data.businesses[i].image_url
+            rating = response.data.businesses[i].rating
+            address = [response.data.businesses[i].location.address1 +","+ response.data.businesses[i].location.state]
+            foodObj[i] = {
+                name: name,
+                image: image,
+                rating: rating,
+                address: address
+            }
+            food.push(foodObj[i])
+
         }
+        console.log (food)
+
         res.render('index', {
-            dataLen:test,
-            error: false
+            //name, image, rating, address
+            food
         })
     })
     .catch ((err) => {

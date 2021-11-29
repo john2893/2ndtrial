@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Cover Template · Bootstrap v5.1</title>
+    <title>Where To Eat! </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
 
@@ -41,7 +41,7 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0">Cover</h3>
+      <h3 class="float-md-start mb-0">WTE</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="#">Features</a>
@@ -51,9 +51,8 @@
   </header>
 
   <main class="px-3">
-    <h1>Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. 
-      Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <h1>Where To Eat</h1>
+    <p class="lead">This App lists all the restaurants in your city.</p>
 
   </main>
   <form action="/" method="POST">
@@ -61,18 +60,28 @@
   </form>
 
   <div id="canvas">
-    <% if(typeof papers == 'object' && papers.length > 0){ %>
-      // whatever you want to do with 'papers' array
-      <% } %>
     
-    <h2> The Village Tavern</h2>    
-    <h5> Rating: 5 </h5>
-    <h5> Price: $$</h5>
-    <img src="/images/logo.png">
+    <% if( food !== null)  {%>
+      
+      <% for (var p of food) { %> 
+        <div> 
+          <h1><%= p.name %> </h1>
+          <h3><%= p.address %> </h3>
+          <h4>Rating: <%= p.rating %> </h4>
+          <img src=<%= p.image %>>
+        </div>
+        
+      <% } %> 
+
+
+    <% } %>
+    
+    
+
 
   </div>
   <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+    <p>Where To Eat for by <a href="https://sujithjohn.com" class="text-white">sujithjohn.com</a>.</p>
   </footer>
 </div>
 
