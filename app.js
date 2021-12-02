@@ -6,7 +6,7 @@ const yelpRoute = require('./routes/yelp');
 
 
 //Middleware
-app.use(express.static('/public'));
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }))
 
 
